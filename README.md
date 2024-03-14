@@ -8,4 +8,4 @@ So, please practise them in the serial order.
 
 For Authentication, GITHUB offers PAT (Personal access token)
 
-Before you make a first push, ensure you generate the token .
+Before you make a first push, ensure you generate the token .           
