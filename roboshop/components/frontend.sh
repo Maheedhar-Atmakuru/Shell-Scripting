@@ -18,23 +18,25 @@ stat() {
     fi
 }
 
-echo -n "Installing nginix Web Server"
+echo -e "\e[35m ****** ______ $COMPONENT Configuration Is Started ****** ______ \e[0m"
+
+echo -n "Installing nginix Web Server :"
 dnf install nginx -y        &>> $LOGFILE
 stat $?
 
-echo -n "Enabling the service"
+echo -n "Enabling the service :"
 systemctl enable nginx         &>> $LOGFILE
 stat $?
 
-echo -n "Starting the service"
+echo -n "Starting the service :"
 systemctl start nginx        &>> $LOGFILE
 stat $?
 
-echo -n "downloading the $COMPONENT Component:"
+echo -n "downloading the $COMPONENT Component :"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?
 
-echo -n "Performing $COMPONENT cleanup"
+echo -n "Performing $COMPONENT cleanup :"
 cd /usr/share/nginx/html
 rm -rf * &>> $LOGFILE
 stat $?
@@ -50,6 +52,7 @@ rm -rf ${COMPONENT}-main README.md        &>> $LOGFILE
 mv localhost.conf /etc/nginx/default.d/roboshop.conf        &>> $LOGFILE
 stat $?
 
+echo -e "\e[35m ****** ______ $COMPONENT Configuration Is Completed ****** ______ \e[0m"
 # echo "Deploying the application"
 # cd /usr/share/nginx/html
 # rm -rf *
