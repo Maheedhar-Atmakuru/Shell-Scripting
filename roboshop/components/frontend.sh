@@ -24,12 +24,15 @@ stat $?
 
 echo -n "Enabling the service"
 systemctl enable nginx         &>> $LOGFILE
+stat $?
 
 echo -n "Starting the service"
 systemctl start nginx        &>> $LOGFILE
+stat $?
 
 echo -n "downloading the $COMPONENT Component:"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+stat $?
 
 echo -n "Performing $COMPONENT cleanup"
 cd /usr/share/nginx/html
