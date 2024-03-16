@@ -18,20 +18,20 @@ stat() {
     fi
 }
 
-echo "Installing nginix Web Server"
+echo -n "Installing nginix Web Server"
 dnf install nginx -y        &>> $LOGFILE
 stat $?
 
-echo "Enabling the service"
+echo -n "Enabling the service"
 systemctl enable nginx         &>> $LOGFILE
 
-echo "Starting the service"
+echo -n "Starting the service"
 systemctl start nginx        &>> $LOGFILE
 
-echo "downloading the $COMPONENT Component:"
+echo -n "downloading the $COMPONENT Component:"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 
-echo "Performing $COMPONENT cleanup"
+echo -n "Performing $COMPONENT cleanup"
 cd /usr/share/nginx/html
 rm -rf * &>> $LOGFILE
 stat $?
