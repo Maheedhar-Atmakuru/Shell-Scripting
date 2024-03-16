@@ -2,7 +2,7 @@
 
 #Check whether you're running this script with sudo or a root user
 ID=$(id -u)
-if [$ID -ne 0] ; then
+if [ $ID -ne 0 ] ; then
     echo -e "\e[31m This Script is expected to run with sudo\e[0m"
     exit 1
 fi
