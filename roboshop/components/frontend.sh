@@ -3,7 +3,7 @@
 #Check whether you're running this script with sudo or a root user
 ID=$(id -u)
 if [ $ID -ne 0 ] ; then
-    echo -e "\e[31m This Script is expected to run with sudo\e[0m"
+    echo -e "\e[31m This Script is expected to run with sudo \e[0m"
     exit 1
 fi
 
@@ -12,7 +12,7 @@ LOGFILE="/tmp/$1.log"
 
 stat() {
     if [ $1 -eq 0 ]; then
-        echo -e "/e[32m Success \e[0m"
+        echo -e "\e[32m Success \e[0m"
     else
         echo "\e[31m Failure \e[0m"
     fi
